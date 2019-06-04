@@ -29,14 +29,19 @@ function findLongestWord(arr) {
   var maxValueIndex = 0
 
   arr.forEach(function (newValue, newIndex) {
-    if (newValue.length > maxLength && newValue.split[" "].length > 0) {
+    if (newValue.length > maxLength) {
       var maxLength = newValue.length;
       var maxValueIndex = newIndex;
     }
   });
-  return arr[maxValueIndex];
 
+  if (arr.length == 1) {
+    return arr[0]
+  } else if (arr[maxValueIndex].split[" "].length > 0) {
+    return arr[maxValueIndex]
+  }
 }
+
 
 // Calculating a Sum
 
@@ -118,7 +123,7 @@ var wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(arr) {
+/* function uniquifyArray(arr) {
   if (arr && arr.length == 0) {
     return undefined;
   }
@@ -137,7 +142,24 @@ function uniquifyArray(arr) {
   } else {
     return newArr;
   }
+} */
+
+function uniquifyArray(arr) {
+  if (arr && arr.length == 0) {
+    return undefined;
+  }
+  arr.forEach(function (newValue) {
+    let duplicateValue = arr.indexOf(newValue);
+    if (duplicateValue != -1) {
+      arr.splice(duplicateValue, 1);
+    } else {
+      return arr
+    }
+  })
 }
+
+
+
 
 
 
@@ -210,15 +232,7 @@ function howManyTimes(arr, word) {
 
 }
 
-howManyTimes(wordsCount, 'eating')
-
-
-
-
 // Bonus Quest
-
-
-
 
 
 var matrix = [
@@ -243,3 +257,7 @@ var matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct() {
+
+}
