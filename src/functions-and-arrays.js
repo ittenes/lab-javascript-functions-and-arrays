@@ -123,47 +123,29 @@ var wordsUnique = [
   'bring'
 ];
 
-/* function uniquifyArray(arr) {
-  if (arr && arr.length == 0) {
-    return undefined;
-  }
-
-  var totaArrLentWithDuplicates = arr.length
-  arr = newArr
-  for (i = 0; i < totaArrLentWithDuplicates; i++) {
-    for (j = 0; j < totaArrLentWithDuplicates; j++) {
-      if (arr[i] == arr[j]) {
-        arr.splice(i, 1);
-      }
-    }
-  }
-  if (totaArrLentWithDuplicates === arr.length) {
-    return arr;
-  } else {
-    return newArr;
-  }
-} */
 
 function uniquifyArray(arr) {
   if (arr && arr.length == 0) {
     return undefined;
   }
-  arr.forEach(function (newValue) {
-    let duplicateValue = arr.indexOf(newValue);
-    if (duplicateValue != -1) {
-      arr.splice(duplicateValue, 1);
-    } else {
-      return arr
+  var newArr = []
+  arr.forEach(function (newValue, index) {
+    console.log(arr.indexOf(newValue))
+    if (arr.indexOf(newValue) == index) {
+      newArr.push(newValue);
     }
+
   })
+  if (arr.length == newArr.length) {
+    return arr
+  } else {
+    return newArr
+  }
 }
 
 
-
-
-
-
 // Finding Elements
+
 var wordsFind = [
   'machine',
   'subset',
