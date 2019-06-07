@@ -26,19 +26,25 @@ function findLongestWord(arr) {
   }
 
   var maxLength = 0;
-  var maxValueIndex = 0
+  var maxValueIndex = 0;
+  var maxValueArray = [];
 
   arr.forEach(function (newValue, newIndex) {
     if (newValue.length > maxLength) {
-      var maxLength = newValue.length;
-      var maxValueIndex = newIndex;
+      maxLength = newValue.length;
+      maxValueIndex = newIndex;
+      maxValueArray = [newValue];
+    } else if (newValue.length = maxLength) {
+      maxValueArray.push(newValue);
     }
   });
 
   if (arr.length == 1) {
     return arr[0]
-  } else if (arr[maxValueIndex].split[" "].length > 0) {
-    return arr[maxValueIndex]
+  } else if (maxValueArray.length > 1) {
+    return maxValueArray[0]
+  } else {
+    return (arr[maxValueIndex])
   }
 }
 
